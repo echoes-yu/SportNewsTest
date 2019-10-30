@@ -24,7 +24,7 @@ var vm = new Vue({
 		orgTree: function() {
 			dialogOpen({
 				id: 'layerOrgTree',
-				title: '选择机构',
+				title: '选择部门',
 		        url: 'base/user/org.html?_' + $.now(),
 		        scroll : true,
 		        width: "300px",
@@ -49,6 +49,7 @@ var vm = new Vue({
                 return false;
             }
             vm.user.roleIdList = $('.roleSelect').val();
+            console.log("=========打印的对象 "+vm.user.roleIdList);
 		    $.ConfirmForm({
 		    	url: '../../sys/user/update?_' + $.now(),
 		    	param: vm.user,

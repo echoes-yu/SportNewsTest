@@ -3,6 +3,7 @@ package cn.goktech.sports.common.xss;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,6 +19,7 @@ public class XssFilter implements Filter {
 	@Override
 	public void init(FilterConfig config) {
 		this.filterConfig = config;
+        urlExclusion = Arrays.asList("/notice/info/save");
 	}
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

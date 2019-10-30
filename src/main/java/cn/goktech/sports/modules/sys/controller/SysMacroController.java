@@ -1,6 +1,7 @@
 package cn.goktech.sports.modules.sys.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import cn.goktech.sports.modules.sys.entity.SysMacroEntity;
 import cn.goktech.sports.modules.sys.service.SysMacroService;
@@ -124,5 +125,17 @@ public class SysMacroController extends AbstractController {
 	public List<SysMacroEntity> listMacroValue(@RequestParam String value) {
 		return sysMacroService.listMacroValue(value);
 	}
-	
+
+	/**
+	 * 根据多个字典类型获得字典map
+	 * @param types
+	 * @return
+	 */
+	@RequestMapping("/getByTypes")
+	public R getByTypes(@RequestParam("types") String types) {
+		R r = new R();
+		Map<String,List<SysMacroEntity>> map = sysMacroService.getByTypes(types);
+		r.putAll(map);
+		return r;
+	}
 }

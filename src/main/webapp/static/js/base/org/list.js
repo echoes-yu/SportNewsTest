@@ -1,5 +1,5 @@
 /**
- * 组织机构js
+ * 部门js
  */
 
 $(function () {
@@ -26,8 +26,8 @@ function getGrid() {
             {checkbox: true},
             {title: '编号', field: 'orgId', visible: false, width: '80px'},
             {title: '名称', field: 'name'},
-            {title: '机构编码', field: 'code', width: '200px'},
-            {title: '上级机构', field: 'parentName', width: '300px'},
+            {title: '部门编码', field: 'code', width: '200px'},
+            {title: '上级部门', field: 'parentName', width: '300px'},
             {title: '可用', field: 'status', width: '60px', formatter: function(value, row, index){
                     if(row.status === 0){
                         return '<i class="fa fa-toggle-off"></i>';

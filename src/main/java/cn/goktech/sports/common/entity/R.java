@@ -51,4 +51,43 @@ public class R extends HashMap<String, Object> {
 		super.put(key, value);
 		return this;
 	}
+
+
+	public static R errorF(String msg) {
+		R r = error(500, "no");
+		r.put("msg", "no");
+		r.put("code", msg);
+		r.put("wng", msg);
+		return r;
+	}
+
+	public static R okF(Map<String, Object> map) {
+		R r = new R();
+		r.put("msg", "ok");
+		r.put("data", map);
+		return r;
+	}
+
+	public static R okF(String msg) {
+		R r = new R();
+		r.put("msg", "ok");
+		r.put("code", msg);
+		return r;
+	}
+
+	public static R okF(Object obj) {
+		R r = new R();
+		r.put("msg", "ok");
+		r.put("data", obj);
+		return r;
+	}
+
+	public static R success(Object obj) {
+		R r = new R();
+		r.put("code", 200);
+		r.put("msg", "ok");
+		r.put("data", obj);
+		return r;
+	}
+
 }

@@ -1,10 +1,10 @@
 package cn.goktech.sports.common.support.config;
 
-import com.google.code.kaptcha.impl.DefaultKaptcha;
-import com.google.code.kaptcha.util.Config;
 import cn.goktech.sports.common.support.interceptor.RestApiInterceptor;
 import cn.goktech.sports.common.support.properties.GlobalProperties;
 import cn.goktech.sports.common.xss.XssFilter;
+import com.google.code.kaptcha.impl.DefaultKaptcha;
+import com.google.code.kaptcha.util.Config;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.server.ErrorPage;

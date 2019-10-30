@@ -14,7 +14,6 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class DpApplication extends SpringBootServletInitializer {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(DpApplication.class);
 
     /**
@@ -22,7 +21,6 @@ public class DpApplication extends SpringBootServletInitializer {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println("123");
         SpringApplication application = new SpringApplication(DpApplication.class);
         application.setBannerMode(Banner.Mode.OFF);
         application.run(args);

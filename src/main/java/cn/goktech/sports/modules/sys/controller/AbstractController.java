@@ -109,4 +109,14 @@ public abstract class AbstractController {
 		return page.concat(".html");
 	}
 	
+	/**
+	 * beetl视图jsp
+	 * @param page
+	 * @return html全路径
+	 */
+	protected String jsp(String page) {
+		return page.concat(".jsp");
+	}
+	
+	
 }

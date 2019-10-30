@@ -136,5 +136,7 @@ public interface SysUserService {
 	 * @return
 	 */
 	SysUserEntity getUserByIdForToken(Long userId);
+   //查账号
+	String queryAcount(String zh);
 	
 }

@@ -11,10 +11,15 @@ import cn.goktech.sports.common.utils.CommonUtils;
 import cn.goktech.sports.modules.sys.dao.SysMacroMapper;
 import cn.goktech.sports.modules.sys.entity.SysMacroEntity;
 import cn.goktech.sports.modules.sys.service.SysMacroService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * 通用字典
@@ -125,6 +130,21 @@ public class SysMacroServiceImpl implements SysMacroService {
 			macro.setStatus(SystemConstant.StatusType.SHOW.getValue());
 		}
 		return macro;
+	}
+
+	/**
+	 * 根据多个字典类型获得字典map
+	 * @param types
+	 * @return
+	 */
+	@Override
+	public Map<String, List<SysMacroEntity>> getByTypes(String types) {
+		if(StringUtils.isBlank(types)){
+            return null;
+		}
+		List<String> typeList = Arrays.asList(types.split(","));
+		List<SysMacroEntity> list = sysMacroMapper.getByTypes(typeList);
+		return list.stream().collect(Collectors.groupingBy(a->a.getTypeName()));
 	}
 
 }

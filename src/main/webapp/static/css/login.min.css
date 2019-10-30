@@ -46,16 +46,6 @@ a.logo{
     color: #fff;
     font-size: 16px;
 }
-
-.messages {
-    margin: 10px 0 0 -58px;
-    padding: 18px 10px 18px 60px;
-    background: #00AA00;
-    position: relative;
-    color: #fff;
-    font-size: 16px;
-}
-
 #darkbannerwrap {
     background: url(../images/aiwrap.png);
     width: 18px;

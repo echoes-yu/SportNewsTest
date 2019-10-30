@@ -6,6 +6,8 @@ import java.util.Map;
 import cn.goktech.sports.common.entity.R;
 import cn.goktech.sports.modules.sys.entity.SysAreaEntity;
 import cn.goktech.sports.modules.sys.service.SysAreaService;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +48,16 @@ public class SysAreaController extends AbstractController {
 	public List<SysAreaEntity> select(@RequestParam String areaCode) {
 		return sysAreaService.listAreaByParentCode(areaCode);
 	}
+
+    /**
+     * 根据层级获取区域
+     * @param layer
+     * @return
+     */
+    @RequestMapping("/layer")
+    public List<SysAreaEntity> listAreaByLayer(Integer layer){
+        return sysAreaService.listAreaByLayer(layer);
+    }
 	
 	/**
 	 * 新增区域

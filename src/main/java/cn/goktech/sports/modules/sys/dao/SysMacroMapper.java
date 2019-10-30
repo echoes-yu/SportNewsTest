@@ -33,5 +33,10 @@ public interface SysMacroMapper extends BaseMapper<SysMacroEntity> {
 	 * @return
 	 */
 	List<SysMacroEntity> listMacroValue(String type);
-	
+	/**
+	 * 根据多个字典类型获得字典map
+	 * @param typeList 类型集合
+	 * @return
+	 */
+	List<SysMacroEntity> getByTypes(List<String> typeList);
 }

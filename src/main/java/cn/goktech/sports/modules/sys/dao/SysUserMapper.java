@@ -56,5 +56,7 @@ public interface SysUserMapper extends BaseMapper<SysUserEntity> {
 	 * @return
 	 */
 	int updatePswd(SysUserEntity user);
+   //查账号
+	String queryAcount(String zh);
 	
 }

@@ -1,5 +1,13 @@
 @layout("../../system/layout.html", {title: "重置密码-用户管理"}){
 <table class="form" id="form">
+<span id="show7" class="badge" style="background-color: red"></span>
+ <tr>
+        <td class="formTitle">新账号<font face="宋体">*</font></td>
+        <td class="formValue">
+            <input type="text" class="form-control"  id="zh2"  placeholder="新账号" v-model="user.username" isvalid="yes"
+                   checkexpession="NotNull" onblur="queryzh()">
+        </td>
+    </tr>
     <tr>
         <td class="formTitle">新密码<font face="宋体">*</font></td>
         <td class="formValue">
@@ -9,10 +17,34 @@
     </tr>
 </table>
 <script type="text/javascript">
+//查编码  
+function queryzh(){
+	var zh= $("#zh2").val();
+	if(zh!=""){
+		$.ajax({
+		       url :'../../sys/user/queryzh',
+		        type : "post",
+		        contentType:'application/json',
+		        async:false,
+		        data:zh,
+		        success : function(data) {
+		        	vm.falg=data.msg;
+		           if("no"==data.msg){
+		        	   $("#show7").text("旧账号!"); 
+		           }else{
+		        	   $("#show7").text(""); 
+		           }
+		        }
+		    });			
+	 }
+   }
+
     var vm = new Vue({
         el: '#dpLTE',
         data: {
-            user: {}
+            user: {
+                username:null
+            }
         },
         methods: {
             acceptClick: function () {
@@ -23,7 +55,7 @@
                     url: '../../sys/user/reset',
                     param: vm.user,
                     success: function (data) {
-
+                    	$.currentIframe().vm.load();
                     }
                 });
             }

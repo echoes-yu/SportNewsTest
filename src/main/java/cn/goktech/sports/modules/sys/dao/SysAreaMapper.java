@@ -26,5 +26,12 @@ public interface SysAreaMapper extends BaseMapper<SysAreaEntity> {
 	 * @return
 	 */
 	int countAreaChildren(Long areaId);
-	
+
+    /**
+     * 根据层级获取区域
+     * @param layer
+     * @return
+     */
+    List<SysAreaEntity> listAreaByLayer(Integer layer);
+
 }

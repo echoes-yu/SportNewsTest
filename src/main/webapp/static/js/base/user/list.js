@@ -29,13 +29,18 @@ function getGrid() {
 			field : "userId",
 			title : "编号",
 			width : "50px"
-		}, {
+		}/*,
+		{
+			field : "account",
+			title : "登录账号",
+			width : "200px"
+		}*/,{
 			field : "username",
 			title : "用户名",
 			width : "200px"
 		}, {
 			field : "orgName",
-			title : "所属机构",
+			title : "所属部门",
 			width : "200px"
 		}, {
 			field : "email",
@@ -82,7 +87,7 @@ function getGrid() {
                     _html += '<a href="javascript:;" onclick="vm.edit(\''+row.userId+'\')" title="编辑"><i class="fa fa-pencil"></i></a>';
                 }
                 if (hasPermission('sys:user:resetPassword')) {
-                    _html += '<a href="javascript:;" onclick="vm.reset(\''+row.userId+'\')" title="重置密码"><i class="fa fa-key"></i></a>';
+                    _html += '<a href="javascript:;" onclick="vm.reset(\''+row.userId+'\',\''+row.username+'\')" title="重置账号密码"><i class="fa fa-key"></i></a>';
                 }
                 if (hasPermission('sys:user:remove')) {
                     _html += '<a href="javascript:;" onclick="vm.remove(false,\''+row.userId+'\')" title="删除"><i class="fa fa-trash-o"></i></a>';
@@ -172,14 +177,15 @@ var vm = new Vue({
                 }
             });
         },
-        reset : function(userId) {
+        reset : function(userId,username) {
             dialogOpen({
-                title : '重置密码',
+                title : '重置账号和密码',
                 url : 'base/user/reset.html?_' + $.now(),
                 width : '400px',
-                height : '220px',
+                height : '250px',
                 success : function(iframeId) {
                     top.frames[iframeId].vm.user.userId = userId;
+                    top.frames[iframeId].vm.user.username = username;
                 },
                 yes : function(iframeId) {
                     top.frames[iframeId].vm.acceptClick();

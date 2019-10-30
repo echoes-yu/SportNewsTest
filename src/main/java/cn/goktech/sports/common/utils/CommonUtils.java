@@ -16,6 +16,8 @@ import org.beetl.core.resource.FileResourceLoader;
 import java.io.File;
 import java.io.IOException;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 通用工具类
@@ -159,5 +161,17 @@ public class CommonUtils {
 			}
 		}
 	}
-	
+
+	/**
+	 * 手机校验
+	 * @param phone
+	 * @return
+	 */
+	public static boolean checkPhone(String phone) {
+		String regex = "^((13[0-9])|(14[5|7])|(15([0-3]|[5-9]))|(17[0-9])|(18[0-9]))\\d{8}$";
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(phone);
+		return m.matches();
+	}
+
 }

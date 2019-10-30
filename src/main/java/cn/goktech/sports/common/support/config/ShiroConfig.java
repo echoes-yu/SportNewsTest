@@ -105,8 +105,11 @@ public class ShiroConfig {
         filterMap.put("/static/**", "anon");
         filterMap.put("/error/**", "anon");
         filterMap.put("/login", "anon");
+        filterMap.put("/payment", "anon");
         filterMap.put("/captcha.jpg", "anon");
         filterMap.put("/rest/**", "anon");
+        filterMap.put("/data/**", "anon");
+        filterMap.put("/img/**", "anon");
         shiroFilter.setFilterChainDefinitionMap(filterMap);
 
         return shiroFilter;

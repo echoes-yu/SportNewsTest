@@ -54,5 +54,12 @@ public interface SysAreaService {
 	 * @return
 	 */
 	R batchRemoveArea(Long[] id);
-	
+
+    /**
+     * 根据层级获取区域
+     * @param layer
+     * @return
+     */
+    List<SysAreaEntity> listAreaByLayer(Integer layer);
+
 }

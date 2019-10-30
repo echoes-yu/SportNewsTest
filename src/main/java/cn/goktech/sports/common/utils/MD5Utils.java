@@ -1,5 +1,7 @@
 package cn.goktech.sports.common.utils;
 
+import java.util.Map;
+
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 
@@ -35,5 +37,12 @@ public class MD5Utils {
 		String newPassword = new SimpleHash(ALGORITH_NAME, pswd, ByteSource.Util.bytes(username + SALT), HASH_ITERATIONS).toHex();
 		return newPassword;
 	}
+	
+	public static String MD5(Map<String, String> param, String appKey) {
+		String newPassword = new SimpleHash(ALGORITH_NAME, param, ByteSource.Util.bytes(appKey + SALT), HASH_ITERATIONS).toHex();
+		return newPassword;
+	}
+	
+	
 	
 }

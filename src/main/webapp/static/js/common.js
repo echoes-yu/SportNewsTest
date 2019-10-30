@@ -262,6 +262,42 @@ dialogOpen = function(opt){
     });
 }
 
+dialogShow = function(opt){
+    var defaults = {
+        id : 'layerForm',
+        title : '',
+        width: '',
+        height: '',
+        url : null,
+        scroll : false,
+        data : {},
+        btn: ['确定']
+    };
+    var option = $.extend({}, defaults, opt), content = null;
+    if(option.scroll){
+        content = [option.url]
+    }else{
+        content = [option.url, 'no']
+    }
+    top.layer.open({
+        type : 2,
+        id : option.id,
+        title : option.title,
+        closeBtn : 1,
+        anim: -1,
+        isOutAnim: false,
+        shadeClose : false,
+        shade : 0.3,
+        area : [option.width, option.height],
+        content : content,
+        btn: option.btn,
+        success: function(){
+            option.success(option.id);
+        }
+
+    });
+}
+
 dialogContent = function(opt){
 	var defaults = {
 		title : '系统窗口',
@@ -633,3 +669,63 @@ document.addEventListener('DOMContentLoaded', function(){
 setTimeout(function() {
     dialogLoading(false)
 }, 1000);
+
+
+//检查文件格式
+function preview(){
+    var filePath = $('#chooseImage').val();
+    //获取到input的value，里面是文件的路径
+    var fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase();
+    // 检查是否是图片
+    if( !fileFormat.match(/.png|.jpg|.jpeg/) ) {
+        return false;
+    }
+    return true;
+}
+// 上传图片
+function uploadImg(e) {
+    var result = "";
+    if (!e) {
+        dialogAlert('表单id不能为空', 2);
+    }
+    if (preview()) {
+        $.ajax({
+            url : '../../editor/upload',
+            type : "post",
+            async:false,
+            cache: false,
+            dataType: "json",
+            data: new FormData($('#'+e)[0]),
+            processData: false,
+            contentType: false,
+            success : function(data) {
+                result=  data;
+            },
+        });
+    } else {
+        dialogAlert('文件错误,文件格式必须为：png/jpg/jpeg', 2);
+    }
+    return result;
+}
+
+// 上传文件
+function uploadFile(e) {
+    var result = "";
+    if (!e) {
+        dialogAlert('表单id不能为空', 2);
+    }
+    $.ajax({
+        url : '../../editor/upload',
+        type : "post",
+        async:false,
+        cache: false,
+        dataType: "json",
+        data: new FormData($('#'+e)[0]),
+        processData: false,
+        contentType: false,
+        success : function(data) {
+            result=  data;
+        },
+    });
+    return result;
+}

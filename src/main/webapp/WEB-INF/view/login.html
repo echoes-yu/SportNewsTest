@@ -22,7 +22,7 @@
 			<img src="captcha.jpg" alt="验证码" id="imgCode" class="codeImg" title="单击图片刷新！">
 			<hr class="hr15">
 			@}
-			<input value="登录" style="width: 100%;background-color:#00AA00" type="button" id="loginBtn">
+			<input value="登录" style="width: 100%;" type="button" id="loginBtn">
 			<hr class="hr20">
             <p class="copyright">
                 版权所有 © 2019 www.goktech.cn
@@ -59,7 +59,7 @@
         function login() {
             var username = $('#username').val();
             if (username === '') {
-                $('.tip').text('用户名不能为空');
+                $('.tip').text('账号不能为空');
                 return false;
             }
             var password = $('#password').val();

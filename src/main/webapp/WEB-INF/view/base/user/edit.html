@@ -4,13 +4,13 @@
         <td class="formTitle">用户名<font face="宋体">*</font></td>
         <td class="formValue">
             <input type="text" class="form-control" placeholder="用户名" v-model="user.username" isvalid="yes"
-                   checkexpession="NotNull">
+                   checkexpession="NotNull"  disabled="disabled">
         </td>
     </tr>
     <tr>
-        <td class="formTitle">所属机构<font face="宋体">*</font></td>
+        <td class="formTitle">所属部门<font face="宋体">*</font></td>
         <td class="formValue">
-            <input type="text" class="form-control pointer" placeholder="所属机构" v-model="user.orgName" \@click="orgTree"
+            <input type="text" class="form-control pointer" placeholder="所属部门" v-model="user.orgName" \@click="orgTree"
                    isvalid="yes" checkexpession="NotNull" readonly="readonly">
         </td>
     </tr>

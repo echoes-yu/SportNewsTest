@@ -98,7 +98,17 @@ public class SysAreaServiceImpl implements SysAreaService {
 		return CommonUtils.msg(id, count);
 	}
 
-	/**
+    /**
+     * 根据层级获取区域
+     * @param layer
+     * @return
+     */
+    @Override
+    public List<SysAreaEntity> listAreaByLayer(Integer layer) {
+        return sysAreaMapper.listAreaByLayer(layer);
+    }
+
+    /**
 	 * 根据父级id查询区域：表格数据源
 	 * @param params
 	 * @return

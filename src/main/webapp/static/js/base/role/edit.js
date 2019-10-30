@@ -13,7 +13,7 @@ var vm = new Vue({
 		orgTree: function() {
 			dialogOpen({
 				id: 'layerOrgTree',
-				title: '选择机构',
+				title: '选择部门',
 		        url: 'base/role/org.html?_' + $.now(),
 		        scroll : true,
 		        width: "300px",

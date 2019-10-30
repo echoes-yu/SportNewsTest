@@ -37,7 +37,7 @@ function getGrid() {
 			width : "200px"
 		}, {
 			field : "orgName",
-			title : "所属机构",
+			title : "所属部门",
 			width : "200px"
 		}, {
 			field : "remark",

@@ -5,6 +5,7 @@ import cn.goktech.sports.common.entity.R;
 import cn.goktech.sports.modules.sys.entity.SysMacroEntity;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 通用字典
@@ -58,5 +59,11 @@ public interface SysMacroService {
 	 * @return
 	 */
 	List<SysMacroEntity> listMacroValue(String type);
-	
+
+	/**
+	 * 根据多个字典类型获得字典map
+	 * @param types
+	 * @return
+	 */
+	Map<String,List<SysMacroEntity>> getByTypes(String types);
 }

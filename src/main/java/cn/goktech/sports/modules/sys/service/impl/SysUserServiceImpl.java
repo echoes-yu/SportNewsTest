@@ -234,8 +234,8 @@ public class SysUserServiceImpl implements SysUserService {
 	 */
 	@Override
 	public R updatePswd(SysUserEntity user) {
-		SysUserEntity currUser = sysUserMapper.getObjectById(user.getUserId());
-		user.setPassword(MD5Utils.encrypt(currUser.getUsername(), user.getPassword()));
+		//SysUserEntity currUser = sysUserMapper.getObjectById(user.getUserId());
+		user.setPassword(MD5Utils.encrypt(user.getUsername(), user.getPassword()));
 		int count = sysUserMapper.updatePswd(user);
 		return CommonUtils.msg(count);
 	}
@@ -289,6 +289,13 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public SysUserEntity getUserByIdForToken(Long userId) {
 		return sysUserMapper.getObjectById(userId);
+	}
+
+	//查账号
+	@Override
+	public String queryAcount(String zh) {
+		// TODO Auto-generated method stub
+		return sysUserMapper.queryAcount(zh);
 	}
 
 }

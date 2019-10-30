@@ -12,11 +12,11 @@ public class Generator {
     public static void main(String[] args) throws Exception {
 
         String jdbcDriver = "com.mysql.jdbc.Driver";
-        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/dp-lte-boot?useUnicode=true&characterEncoding=utf-8";
+        String jdbcUrl = "jdbc:mysql://127.0.0.1:3306/sports_news?useUnicode=true&characterEncoding=utf-8";
         String jdbcUsername = "root";
-        String jdbcPassword = "root";
+        String jdbcPassword = "123456";
 
-        String tablePrefix = "gen_";
+        String tablePrefix = "good";
 
         String javaModule = "test";
         String webModule = "test";
